@@ -31,6 +31,10 @@ class Functionality:
     def moveThe_dir(self,current_location, des_location):
         shutil.move(current_location, des_location)
         messagebox.showinfo("info", "Successfully moved")
+    
+    def delThe_dir(self, dir_location):
+        shutil.rmtree(dir_location)
+        messagebox.showinfo("info", "Delete successfully")
 
     def os_name(self):
         self.my_osName = os.name

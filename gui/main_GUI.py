@@ -214,6 +214,25 @@ class FileManager_gui:
             exit_button.grid(row=2, column=2, padx=8, pady=8)
             self.pop_cmdir.mainloop()
 
+    def del_the_folder(self):
+        self.functionalities_file.delThe_dir(self.del_folder_name.get())
+
+    def del_dir_window(self):
+        self.pop_delfolder_window = tk.Frame(self.options_window, bg="#f5bf69")
+        self.pop_delfolder_window.place(x=0, y=300)
+        self.del_folder_name = tk.StringVar()
+        label = tk.Label(self.pop_delfolder_window, text="Select the folder", bg="#f5bf69")
+        label.grid(row=0,column=0, padx=5,pady=5)
+        entery = tk.Entry(self.pop_delfolder_window, textvariable=self.del_folder_name, width=50)
+        entery.grid(row=0, column=1, padx=5, pady=5)
+        button = tk.Button(self.pop_delfolder_window, text="Browse", command=lambda: self.browse_paste(entery))
+        button.grid(row=0, column=2, padx=5, pady=5)
+        del_folder_btn = tk.Button(self.pop_delfolder_window, text="Delete", command=self.del_the_folder)
+        del_folder_btn.grid(row=1, column=0, padx=10, pady=10)
+        exit_btn = tk.Button(self.pop_delfolder_window, text="Exit", command=self.pop_delfolder_window.destroy)
+        exit_btn.grid(row=1, column=1, padx=10, pady=10)
+        self.pop_delfolder_window.mainloop()
+
     def create_options(self):
         self.options_window = tk.Toplevel()
         self.options_window.geometry("650x500")
@@ -223,7 +242,7 @@ class FileManager_gui:
         delete_file_button.grid(row=0, column=1, padx=5, pady=5)
         copy_move_dir = tk.Button(self.options_window, text="Copy or move folder", command=self.copy_moveDir_window)
         copy_move_dir.grid(row=1, column=0, padx=(12,0),pady=5)
-        delete_folder_button = tk.Button(self.options_window, text="Delete folder")
+        delete_folder_button = tk.Button(self.options_window, text="Delete folder", command=self.del_dir_window)
         delete_folder_button.grid(row=1, column=1, padx=5,pady=5)
         self.options_window.mainloop()
 
@@ -276,7 +295,7 @@ click on ok to continue
         return button
     
     def bottom_img(self):
-        frame_img = tk.PhotoImage(file="/home/kishan/Desktop/kishan/python/file_managment/File_manager_py/gui/box.png")
+        frame_img = tk.PhotoImage(file="File_manager_py/gui/box.png")
         myimg = tk.Label(image=frame_img)
         myimg.pack(side="bottom")
         user_label = tk.Label(self.window, text="User:-)", fg="white", bg="#1ab5ef", font=("Purisa",13,"bold"))

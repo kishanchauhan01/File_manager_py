@@ -217,12 +217,14 @@ class FileManager_gui:
     def create_options(self):
         self.options_window = tk.Toplevel()
         self.options_window.geometry("650x500")
-        copy_file_button = tk.Button(self.options_window, text="copy or move file", command= self.copy_move_file_window)
+        copy_file_button = tk.Button(self.options_window, text="Copy or move file", command= self.copy_move_file_window)
         copy_file_button.grid(row=0, column=0, padx=5, pady=5)
         delete_file_button = tk.Button(self.options_window, text="Delete the file", command=self.delete_the_file_window)
         delete_file_button.grid(row=0, column=1, padx=5, pady=5)
-        copy_move_dir = tk.Button(self.options_window, text="copy or move folder", command=self.copy_moveDir_window)
+        copy_move_dir = tk.Button(self.options_window, text="Copy or move folder", command=self.copy_moveDir_window)
         copy_move_dir.grid(row=1, column=0, padx=(12,0),pady=5)
+        delete_folder_button = tk.Button(self.options_window, text="Delete folder")
+        delete_folder_button.grid(row=1, column=1, padx=5,pady=5)
         self.options_window.mainloop()
 
     def options_btn(self):
@@ -274,7 +276,7 @@ click on ok to continue
         return button
     
     def bottom_img(self):
-        frame_img = tk.PhotoImage(file="box.png")
+        frame_img = tk.PhotoImage(file="/home/kishan/Desktop/kishan/python/file_managment/File_manager_py/gui/box.png")
         myimg = tk.Label(image=frame_img)
         myimg.pack(side="bottom")
         user_label = tk.Label(self.window, text="User:-)", fg="white", bg="#1ab5ef", font=("Purisa",13,"bold"))

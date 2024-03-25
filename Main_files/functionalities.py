@@ -42,6 +42,7 @@ class Functionality:
             return "Linux"
         elif self.my_osName == "nt":
             return "Window"
+        else: return "mac"
 
     def user_name(self):
         return getpass.getuser()

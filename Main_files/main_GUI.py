@@ -143,6 +143,10 @@ class FileManager_gui:
         self.functionalities_file.delThe_file(del_location)
 
     def delete_the_file_window(self):
+        '''
+        This method create another frame for delete the file button and its provide functionalities for deleting files
+        and if there are any ohter frame is open then it firs closed that and after that it open this frame
+        '''
         try:
             if(self.pop_window.winfo_exists()):
                 self.pop_window.destroy()
@@ -181,12 +185,21 @@ class FileManager_gui:
             self.pop_del_window.mainloop()
 
     def copy_the_dir(self):
+        '''
+        This method just call the copy function of the Functionality class and that function copy the folder you select
+        '''
         self.functionalities_file.copyThe_dir(self.cm_folder_name.get(), self.cm_destFolder_name.get())
     
     def move_the_dir(self):
+        '''
+        This method just call the move function of the Functionality class and that function move the folder you select
+        '''
         self.functionalities_file.moveThe_dir(self.cm_folder_name.get(), self.cm_destFolder_name.get())
 
     def copy_moveDir_window(self):
+        '''
+        This method create another frame for copy/move folder button and its provide functionalities for copy/move folder and if there are any ohter frame is open then it firs closed that and after that it open this frame
+        '''
         try:
             if(self.pop_del_window.winfo_exists()):
                 self.pop_del_window.destroy()
@@ -234,9 +247,15 @@ class FileManager_gui:
             self.pop_cmdir.mainloop()
 
     def del_the_folder(self):
+        '''
+        This method just call the del_dir function of the Functionality class and that function delete the folder you select
+        '''
         self.functionalities_file.delThe_dir(self.del_folder_name.get())
 
     def del_dir_window(self):
+        '''
+        This method create another frame for delete folder button and its provide functionalities for delete a folder and if there are any ohter frame is open then it firs closed that and after that it open this frame
+        '''
         try:
             if(self.pop_del_window.winfo_exists()):
                 self.pop_del_window.destroy()
@@ -274,6 +293,9 @@ class FileManager_gui:
         self.pop_delfolder_window.mainloop()
 
     def create_options(self):
+        '''
+        This method create a new toplevel window for option button and on this window there are some button
+        '''
         self.options_window = tk.Toplevel()
         self.options_window.geometry("650x500")
         copy_file_button = tk.Button(self.options_window, text="Copy or move file", command= self.copy_move_file_window)
@@ -287,21 +309,33 @@ class FileManager_gui:
         self.options_window.mainloop()
 
     def options_btn(self):
+        '''
+        Creating button called options
+        '''
         button = tk.Button(self.options_frame, text='Options', command=self.create_options, font=("Purisa",10,"bold"))
         button.grid(row=0,column=2, pady=5, padx=5)
         return button
 
     def browse(self):
+        '''
+        Creating browse button for organize directory button and provides the browse functionality
+        '''
         file_list = str(filedialog.askdirectory())
         self.directory_name.insert('1',file_list)
         global dir_name
         dir_name = self.name_var.get()
 
-    def orgainzation_done(self):
+    def organization_done(self):
+        '''
+        It shows the message when the organization is complete
+        '''
         temp = Extension_wise(dir_name)
         messagebox.showinfo("info","your directory is organized successfully")
 
     def organize_window(self):
+        '''
+        It create the frame for organize directory button and it shows some message when that button is clicked.
+        '''
         self.toplevel = tk.Frame(self.window, bg='white')
         self.toplevel.pack()
         messagebox.showinfo('info', '''Your directory is going to orgainze in this way:-)
@@ -322,7 +356,7 @@ click on ok to continue
         self.directory_name.grid(row=1, column=1, padx=(10,0), pady=5)
         button = tk.Button(self.toplevel, text="Browse", command=self.browse, bg='yellow')
         button.grid(row=1, column=2, padx=5, pady=5)
-        button1 = tk.Button(self.toplevel, text="Enter", command= self.orgainzation_done)
+        button1 = tk.Button(self.toplevel, text="Enter", command= self.organization_done)
         button1.grid(row=3, column=1, padx=(0,100), pady=5)
         button2 = tk.Button(self.toplevel, text="Exit", command=self.toplevel.destroy)
         button2.grid(row=3, column=2, padx=(0,50), pady=5)
@@ -330,11 +364,17 @@ click on ok to continue
         
 
     def organize_btn(self):
+        '''
+        This simply create a button called organize directory
+        '''
         button = tk.Button(self.options_frame, text='Organize Directory', command = self.organize_window, font=("Purisa",10,"bold"))
         button.grid(row=0, column=1, padx=5, pady=5)
         return button
     
     def bottom_img(self):
+        '''
+        This is a bottom frame which shows some information 
+        '''
         frame_img = tk.PhotoImage(file="File_manager_py/Main_files/box.png")
         myimg = tk.Label(image=frame_img)
         myimg.pack(side="bottom")

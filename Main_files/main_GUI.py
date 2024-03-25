@@ -93,6 +93,13 @@ class FileManager_gui:
         except AttributeError:
             print(AttributeError)
         
+        try:
+            if(self.pop_delfolder_window.winfo_exists()):
+                self.pop_delfolder_window.destroy()
+                
+        except AttributeError:
+            print(AttributeError)
+        
         finally:
             self.pop_window = tk.Frame(self.options_window,bg="#f5bf69")
             self.pop_window.place(x=0, y=300)
@@ -149,6 +156,12 @@ class FileManager_gui:
                 
         except AttributeError:
             print(AttributeError)
+        try:
+            if(self.pop_delfolder_window.winfo_exists()):
+                self.pop_delfolder_window.destroy()
+                
+        except AttributeError:
+            print(AttributeError)
 
         finally:
             self.pop_del_window = tk.Frame(self.options_window, bg="#f5bf69")
@@ -177,7 +190,6 @@ class FileManager_gui:
         try:
             if(self.pop_del_window.winfo_exists()):
                 self.pop_del_window.destroy()
-                
 
         except AttributeError:
             print(AttributeError)
@@ -185,6 +197,13 @@ class FileManager_gui:
         try:
             if(self.pop_window.winfo_exists()):
                 self.pop_window.destroy()
+                
+        except AttributeError:
+            print(AttributeError)
+        
+        try:
+            if(self.pop_delfolder_window.winfo_exists()):
+                self.pop_delfolder_window.destroy()
                 
         except AttributeError:
             print(AttributeError)
@@ -218,6 +237,27 @@ class FileManager_gui:
         self.functionalities_file.delThe_dir(self.del_folder_name.get())
 
     def del_dir_window(self):
+        try:
+            if(self.pop_del_window.winfo_exists()):
+                self.pop_del_window.destroy()
+
+        except AttributeError:
+            print(AttributeError)
+        
+        try:
+            if(self.pop_window.winfo_exists()):
+                self.pop_window.destroy()
+                
+        except AttributeError:
+            print(AttributeError)
+
+        try:
+            if(self.pop_cmdir.winfo_exists()):
+                self.pop_cmdir.destroy()
+        
+        except AttributeError:
+            print(AttributeError)
+            
         self.pop_delfolder_window = tk.Frame(self.options_window, bg="#f5bf69")
         self.pop_delfolder_window.place(x=0, y=300)
         self.del_folder_name = tk.StringVar()
@@ -295,7 +335,7 @@ click on ok to continue
         return button
     
     def bottom_img(self):
-        frame_img = tk.PhotoImage(file="File_manager_py/gui/box.png")
+        frame_img = tk.PhotoImage(file="File_manager_py/Main_files/box.png")
         myimg = tk.Label(image=frame_img)
         myimg.pack(side="bottom")
         user_label = tk.Label(self.window, text="User:-)", fg="white", bg="#1ab5ef", font=("Purisa",13,"bold"))

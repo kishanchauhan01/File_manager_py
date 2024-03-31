@@ -2,6 +2,7 @@ from extension_wise import Extension_wise
 from functionalities import Functionality
 import tkinter as tk
 from tkinter import messagebox, filedialog
+import os
 
 #fonts
 HEAD_LINE = ("Purisa",24,"bold")
@@ -375,7 +376,9 @@ click on ok to continue
         '''
         This is a bottom frame which shows some information 
         '''
-        frame_img = tk.PhotoImage(file="File_manager_py/Main_files/box.png")
+        temp = os.path.join(self.functionalities_file.cwd(), 'Main_files')
+        temp = temp.replace("\\", '/')
+        frame_img = tk.PhotoImage(file= os.path.join(temp, 'box.png'))
         myimg = tk.Label(image=frame_img)
         myimg.pack(side="bottom")
         user_label = tk.Label(self.window, text="User:-)", fg="white", bg="#1ab5ef", font=("Purisa",13,"bold"))

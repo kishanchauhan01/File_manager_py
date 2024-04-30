@@ -15,7 +15,7 @@ class FileManager:
         image_extension = ['.webp', '.jpg', '.jpeg', '.svg', '.psd', '.gif', '.png']
         video_extension = ['.mp4', '.mkv', '.webm', '.flv', '.avi', '.mpeg']
         audio_extension = ['.mp3', '.wav', '.flac', '.aac']
-        document_extension = ['.pdf', '.pptx', '.docx', '.xlsx', '.txt', '.html', '.css', '.map', '.json', '.js', '.ipynb']
+        document_extension = ['.pdf', '.pptx', '.docx', '.xlsx', '.txt', '.html', '.css', '.map', '.json', '.js', '.ipynb', '.cpp', '.c', '.py']
         compressed_extension = ['.zip', '.rar', '.7z', '.tar.gz', '.tgz', '.tar', '.tar.xz', '.deb']
         software_extension = ['.EXE', '.exe']
 

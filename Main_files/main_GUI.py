@@ -59,6 +59,7 @@ class FileManager_gui:
         the full path of that directory
         '''
         paste_directory = str(filedialog.askdirectory())
+        # entery.delete(0, tk.END)
         entery.insert('1', paste_directory)
 
     def copy_the_files(self):
@@ -376,9 +377,7 @@ click on ok to continue
         '''
         This is a bottom frame which shows some information 
         '''
-        temp = os.path.join(self.functionalities_file.cwd(), 'Main_files')
-        temp = temp.replace("\\", '/')
-        frame_img = tk.PhotoImage(file= os.path.join(temp, 'box.png'))
+        frame_img = tk.PhotoImage(file="/home/kishan/Desktop/kishan/python/file_managment/File_manager_py/Main_files/box.png")
         myimg = tk.Label(image=frame_img)
         myimg.pack(side="bottom")
         user_label = tk.Label(self.window, text="User:-)", fg="white", bg="#1ab5ef", font=("Purisa",13,"bold"))

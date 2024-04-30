@@ -16,4 +16,12 @@
 
 * In `Options` button you have option to copy, cut, delete like features.
 
-  <b>How to run the code<b>
+# How to use or run the code
+
+1. Just download the zip file on clicking the code button in git hub.
+2. After that unzip the zip file and open the `File_manager_py` folder in your `vs code` or any other code editor.
+3. After that open the `main_GUI.py` and go to the line no. 380 and after that in your `File_manager_py` folder you have a box.png just copy the file path of that file and past in line no. 380 in the string for example:-
+    ``` frame_img = tk.PhotoImage(file="/home/kishan/Desktop/kishan/python/file_managment/File_manager_py/Main_files/box.png") ```
+   * you have to past the path of the image file here in the string just after `file=` here file is the variabel name.
+
+🙂 You are done now jsut run the `app.py` file.
